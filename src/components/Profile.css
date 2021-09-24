@@ -1,0 +1,33 @@
+.profile-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  border-bottom: 1px solid grey;
+}
+
+.user-stats {
+  display: flex;
+  justify-content: space-between;
+  width: 108%;
+}
+
+.profile {
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.gallery-image {
+  width: 30%;
+}
