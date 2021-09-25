@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { UserCotext } from "../App";
+import { UserContext } from "../App";
 
 const Navbar = () => {
   const history = useHistory();
-  const { state, dispatch } = useContext(UserCotext);
+  const { state, dispatch } = useContext(UserContext);
   const renderList = () => {
     if (state) {
       return [

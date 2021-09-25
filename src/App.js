@@ -14,18 +14,16 @@ import CreatePost from "./components/CreatePost";
 import { useEffect, createContext, useReducer, useContext } from "react";
 import { reducer, initialState } from "./reducers/userReducer";
 
-export const UserCotext = createContext();
+export const UserContext = createContext();
 
 const Routing = () => {
   const history = useHistory();
-  const { state, dispatch } = useContext(UserCotext);
+  const { state, dispatch } = useContext(UserContext);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
-    if (user) {
-      dispatch({ type: "USER", payload: user });
-      history.push("/");
-    } else history.push("/login");
+    if (user) dispatch({ type: "USER", payload: user });
+    else history.push("/login");
   }, []);
 
   return (
@@ -42,12 +40,12 @@ const Routing = () => {
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <UserCotext.Provider value={{ state, dispatch }}>
+    <UserContext.Provider value={{ state, dispatch }}>
       <Router>
         <Navbar />
         <Routing />
       </Router>
-    </UserCotext.Provider>
+    </UserContext.Provider>
   );
 };
 

@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import M from "materialize-css";
-import { UserCotext } from "../App";
+import { UserContext } from "../App";
 
 const Login = () => {
-  const { state, dispatch } = useContext(UserCotext);
+  const { state, dispatch } = useContext(UserContext);
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
