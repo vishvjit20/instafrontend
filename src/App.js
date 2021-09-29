@@ -15,6 +15,7 @@ import { useEffect, createContext, useReducer, useContext } from "react";
 import { reducer, initialState } from "./reducers/userReducer";
 import UserProfile from "./components/UserProfile";
 import SubscribedPosts from "./components/SubscribedUsersPosts";
+import Reset from "./components/Reset";
 
 export const UserContext = createContext();
 
@@ -25,7 +26,10 @@ const Routing = () => {
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user) dispatch({ type: "USER", payload: user });
-    else history.push("/login");
+    else {
+      if (!history.location.pathname.startsWith("/reset"))
+        history.push("/login");
+    }
   }, []);
 
   return (
@@ -37,6 +41,7 @@ const Routing = () => {
       <Route path="/create" component={CreatePost}></Route>
       <Route path="/profile/:userId" component={UserProfile}></Route>
       <Route path="/myfollowingposts" component={SubscribedPosts}></Route>
+      <Route path="/reset" component={Reset}></Route>
     </Switch>
   );
 };
