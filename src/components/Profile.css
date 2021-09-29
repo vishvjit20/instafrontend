@@ -22,6 +22,11 @@
   margin: 0 auto;
 }
 
+.image {
+  display: flex;
+  flex-direction: column;
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;

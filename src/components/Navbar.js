@@ -15,6 +15,9 @@ const Navbar = () => {
           <Link to="/create">Create Post</Link>
         </li>,
         <li>
+          <Link to="/myfollowingposts">My following posts</Link>
+        </li>,
+        <li>
           <button
             className="btn #e53935 red darken-1
 "

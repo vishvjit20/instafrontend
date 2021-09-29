@@ -6,8 +6,10 @@ import "./Profile.css";
 const UserProfile = () => {
   const { state, dispatch } = useContext(UserContext);
   const [userProfile, setProfile] = useState(null);
-  const [showfollow, setShowfollow] = useState(true);
   const { userId } = useParams();
+  const [showfollow, setShowfollow] = useState(
+    state ? !state.following.includes(userId) : true
+  );
 
   useEffect(() => {
     fetch(`/user/user/${userId}`, {
@@ -74,7 +76,7 @@ const UserProfile = () => {
 
         setProfile((prevState) => {
           const newFollower = prevState.user.followers.filter(
-            (item) => item != data._id
+            (item) => item !== data._id
           );
           return {
             ...prevState,
@@ -96,10 +98,7 @@ const UserProfile = () => {
         <div className="profile">
           <div className="profile-container">
             <div>
-              <img
-                src="https://media.istockphoto.com/photos/learn-to-love-yourself-first-picture-id1291208214?b=1&k=20&m=1291208214&s=170667a&w=0&h=sAq9SonSuefj3d4WKy4KzJvUiLERXge9VgZO-oqKUOo="
-                className="profile-image"
-              />
+              <img src={userProfile.user.pic} className="profile-image" />
             </div>
             <div>
               <h4>{userProfile.user.name}</h4>
