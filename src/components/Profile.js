@@ -27,8 +27,12 @@ const Profile = () => {
           <h4>{state ? state.name : "loading"}</h4>
           <div className="user-stats">
             <h5>{mypics.length} posts</h5>
-            <h5>40 followers</h5>
-            <h5>40 followings</h5>
+            <h5>
+              {state && state.followers ? state.followers.length : 0} followers
+            </h5>
+            <h5>
+              {state && state.following ? state.following.length : 0} following
+            </h5>
           </div>
         </div>
       </div>
