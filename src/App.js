@@ -16,6 +16,7 @@ import { reducer, initialState } from "./reducers/userReducer";
 import UserProfile from "./components/UserProfile";
 import SubscribedPosts from "./components/SubscribedUsersPosts";
 import Reset from "./components/Reset";
+import NewPassword from "./components/NewPassword";
 
 export const UserContext = createContext();
 
@@ -41,7 +42,8 @@ const Routing = () => {
       <Route path="/create" component={CreatePost}></Route>
       <Route path="/profile/:userId" component={UserProfile}></Route>
       <Route path="/myfollowingposts" component={SubscribedPosts}></Route>
-      <Route path="/reset" component={Reset}></Route>
+      <Route path="/reset" component={Reset} exact></Route>
+      <Route path="/reset/:token" component={NewPassword}></Route>
     </Switch>
   );
 };
